@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOKI si Tokek — Proyek Multimedia</title>
+<style>
+:root{--ink:#17302d;--leaf:#9dd8a7;--lime:#d7f17b;--cream:#fff9e9;--muted:#b7d4c4;--orange:#ff9a57}
+*{box-sizing:border-box}body{margin:0;background:#0b211f;color:var(--cream);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif}
+.wrap{max-width:1120px;margin:auto;padding:22px}.topline{display:flex;justify-content:space-between;align-items:center;color:#b7d4c4;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}
+.brand{font-weight:900;letter-spacing:.18em}.pill{border:1px solid #35564d;border-radius:99px;padding:8px 12px}
+.hero{margin-top:18px;border:1px solid #31544a;border-radius:28px;overflow:hidden;background:radial-gradient(ellipse at 72% 28%,#2c6651 0,#173f37 32%,#102e2a 66%);position:relative}
+.herohead{padding:28px 32px 0;position:relative;z-index:2}.eyebrow{color:var(--lime);font-size:.8rem;letter-spacing:.16em;font-weight:800}.hero h1{font-size:clamp(2.5rem,6vw,5.2rem);line-height:.95;margin:10px 0 12px;letter-spacing:-.06em}.hero h1 span{color:var(--lime)}.sub{color:#c1d8ca;max-width:560px;line-height:1.65;margin:0}
+.stage{height:340px;position:relative;overflow:hidden}.moon{position:absolute;right:12%;top:16px;width:82px;height:82px;border-radius:50%;background:#f8f2c9;box-shadow:0 0 55px #d8f49b55}.branch{position:absolute;right:-5%;top:42%;width:68%;height:24px;border-radius:99px;background:linear-gradient(#805b3b,#392f25);transform:rotate(-9deg);box-shadow:0 14px 0 #091d1b55}.branch:after{content:"";position:absolute;width:150px;height:12px;background:#5b7043;right:15%;top:-52px;transform:rotate(-24deg);border-radius:100%}.leaf{position:absolute;width:110px;height:42px;background:#3d8a5b;border-radius:100% 0 100% 0;opacity:.7;transform:rotate(-30deg)}.l1{top:30px;left:7%}.l2{top:90px;right:7%;transform:rotate(35deg)}.l3{bottom:10px;left:23%;transform:rotate(15deg)}
+.gecko{position:absolute;left:17%;top:23%;width:min(60%,520px);height:auto;filter:drop-shadow(0 20px 12px #06171466);transform-origin:50% 70%;cursor:pointer;animation:idle 2.8s ease-in-out infinite}
+.gecko.walk{animation:walk .42s ease-in-out infinite}.gecko.roll{animation:roll .85s ease-in-out 1}.gecko.climb{animation:climb 1.5s ease-in-out}
+@keyframes idle{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-7px) rotate(1deg)}}
+@keyframes walk{0%,100%{transform:translate(0,0) rotate(-2deg)}50%{transform:translate(22px,-7px) rotate(3deg)}}
+@keyframes roll{0%{transform:rotate(0) scale(1)}100%{transform:rotate(360deg) scale(.92)}}
+@keyframes climb{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(45px,-65px) rotate(-14deg)}100%{transform:translate(0,0) rotate(0)}}
+.caption{position:absolute;bottom:18px;left:26px;color:#d6eadb;font-size:.8rem}.soundwave{position:absolute;bottom:20px;right:24px;display:flex;align-items:center;gap:4px;height:25px}.soundwave i{display:block;width:4px;height:7px;border-radius:9px;background:var(--lime)}.soundwave.playing i{animation:wave .5s ease-in-out infinite alternate}.soundwave i:nth-child(2n){animation-delay:.15s}.soundwave i:nth-child(3n){animation-delay:.3s}@keyframes wave{to{height:24px}}
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:16px}.panel{background:#112e2a;border:1px solid #2b4d43;border-radius:22px;padding:22px}.panel h2{font-size:1.1rem;margin:0 0 15px}.sectiontag{font-size:.72rem;color:var(--lime);letter-spacing:.15em;font-weight:800}.controls{display:flex;flex-wrap:wrap;gap:9px}.btn{font:inherit;font-weight:800;border:1px solid #3c6254;background:#1b4238;color:var(--cream);padding:12px 15px;border-radius:14px;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px);border-color:var(--lime)}.btn.primary{background:var(--lime);color:#183329;border-color:var(--lime)}.btn:active{transform:scale(.97)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:#0b211f;border-radius:15px;padding:13px}.stat .emoji{font-size:1.3rem}.stat strong{display:block;font-size:1.35rem;margin:7px 0 3px}.stat small{color:#a9c9b7}.meter{height:7px;border-radius:9px;background:#29483d;overflow:hidden;margin-top:9px}.meter span{display:block;height:100%;width:25%;background:var(--lime);border-radius:9px;transition:width .3s}.settings{display:grid;grid-template-columns:1fr 1fr;gap:15px}.setting label{display:flex;justify-content:space-between;font-size:.85rem;color:#c3d9cb;margin-bottom:9px}.setting input{width:100%;accent-color:var(--lime)}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.fact{border:1px solid #2b4d43;border-radius:18px;padding:17px;background:#102a26}.fact .num{color:var(--lime);font-size:.72rem;letter-spacing:.12em;font-weight:900}.fact h3{margin:8px 0;font-size:1rem}.fact p{margin:0;color:#b9d1c3;font-size:.88rem;line-height:1.6}.footer{padding:22px 4px 10px;color:#789b8b;display:flex;justify-content:space-between;gap:10px;font-size:.8rem}.toast{position:absolute;top:16px;left:50%;transform:translateX(-50%);background:#d7f17b;color:#17302d;padding:10px 16px;border-radius:99px;font-weight:900;font-size:.85rem;opacity:0;transition:opacity .2s;pointer-events:none;white-space:nowrap}.toast.show{opacity:1}
+@media(max-width:700px){.wrap{padding:12px}.herohead{padding:24px 20px 0}.stage{height:275px}.gecko{left:6%;top:27%;width:82%}.grid{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}.stat{padding:9px}.stat strong{font-size:1.05rem}.footer{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topline"><div class="brand">◉ WILD / INTERACTIVE</div><div class="pill">PROYEK MULTIMEDIA · 01</div></div>
+  <main class="hero">
+    <div class="herohead"><div class="eyebrow">KENAL LEBIH DEKAT</div><h1>TOKI <span>si Tokek.</span></h1><p class="sub">Si pemanjat dinding dengan kaki ajaib dan suara khas yang sering terdengar saat malam tiba. Klik si Toki, dengarkan suaranya, lalu ajak dia beraksi!</p></div>
+    <div class="stage" id="stage">
+      <div class="moon"></div><div class="leaf l1"></div><div class="leaf l2"></div><div class="leaf l3"></div><div class="branch"></div>
+      <div class="toast" id="toast">TO-KAY! 🦎</div>
+      <svg class="gecko" id="gecko" viewBox="0 0 600 300" role="img" aria-label="Ilustrasi tokek biru berbintik oranye" onclick="callGecko()">
+        <defs><linearGradient id="skin" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#8bd4d0"/><stop offset=".45" stop-color="#408c91"/><stop offset="1" stop-color="#20545f"/></linearGradient><linearGradient id="belly" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c6d7a0"/><stop offset="1" stop-color="#7eaa8a"/></linearGradient></defs>
+        <!-- tail -->
+        <path d="M165 180 C120 205 83 226 54 204 C22 179 58 149 88 170 C109 186 83 202 69 187" fill="none" stroke="#347c82" stroke-width="30" stroke-linecap="round"/>
+        <path d="M165 180 C120 205 83 226 54 204 C22 179 58 149 88 170 C109 186 83 202 69 187" fill="none" stroke="#a4d9bd" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 13"/>
+        <!-- legs -->
+        <g fill="url(#skin)" stroke="#2c6d75" stroke-width="4">
+          <path d="M225 180 Q190 205 173 229 Q161 246 139 241 L121 231 Q108 228 105 242 Q107 255 132 257 L159 267 Q178 270 190 251 L247 216Z"/>
+          <path d="M355 184 Q390 205 416 226 Q432 240 453 229 L469 215 Q482 210 488 223 Q490 237 468 247 L446 260 Q427 266 410 249 L342 218Z"/>
+          <path d="M260 118 Q228 94 207 72 Q191 57 175 69 L160 82 Q147 89 140 76 Q137 62 157 49 L178 35 Q196 27 211 43 L286 85Z"/>
+          <path d="M384 121 Q421 97 443 74 Q457 58 474 69 L490 82 Q503 89 510 76 Q512 62 492 49 L471 35 Q453 27 438 43 L360 86Z"/>
+        </g>
+        <!-- toe pads -->
+        <g fill="#b5dfb5"><circle cx="117" cy="239" r="8"/><circle cx="126" cy="251" r="7"/><circle cx="140" cy="253" r="7"/><circle cx="477" cy="220" r="8"/><circle cx="479" cy="236" r="7"/><circle cx="465" cy="246" r="7"/><circle cx="153" cy="55" r="7"/><circle cx="166" cy="44" r="7"/><circle cx="179" cy="44" r="7"/><circle cx="502" cy="55" r="7"/><circle cx="489" cy="44" r="7"/><circle cx="476" cy="44" r="7"/></g>
+        <!-- body -->
+        <path d="M183 150 Q205 91 291 92 Q365 89 413 135 Q431 159 401 190 Q351 224 258 211 Q193 205 183 150Z" fill="url(#skin)" stroke="#2b6870" stroke-width="5"/>
+        <path d="M206 164 Q286 191 398 160 Q390 197 331 207 Q254 217 216 190Z" fill="url(#belly)" opacity=".95"/>
+        <!-- spots -->
+        <g fill="#ffad63" stroke="#e77d4b" stroke-width="2"><circle cx="227" cy="126" r="10"/><circle cx="252" cy="108" r="8"/><circle cx="281" cy="124" r="11"/><circle cx="310" cy="105" r="8"/><circle cx="339" cy="123" r="10"/><circle cx="370" cy="139" r="8"/><circle cx="247" cy="151" r="7"/><circle cx="284" cy="157" r="8"/><circle cx="324" cy="147" r="7"/><circle cx="356" cy="169" r="8"/><circle cx="221" cy="173" r="6"/><circle cx="380" cy="151" r="5"/></g>
+        <!-- head -->
+        <path d="M374 122 Q386 78 433 71 Q474 65 500 91 Q523 111 510 136 Q494 158 452 154 L399 158Z" fill="url(#skin)" stroke="#2b6870" stroke-width="5"/>
+        <path d="M420 139 Q462 151 503 127 Q496 151 463 157 L422 151Z" fill="#d0c99b"/>
+        <g fill="#ffad63"><circle cx="422" cy="91" r="8"/><circle cx="448" cy="80" r="7"/><circle cx="477" cy="91" r="8"/><circle cx="491" cy="111" r="6"/><circle cx="444" cy="110" r="6"/></g>
+        <!-- eyes -->
+        <ellipse cx="433" cy="91" rx="17" ry="21" fill="#f4d57b"/><ellipse cx="435" cy="92" rx="7" ry="14" fill="#172b27"/><circle cx="438" cy="86" r="3" fill="white"/>
+        <ellipse cx="485" cy="98" rx="15" ry="18" fill="#f4d57b"/><ellipse cx="486" cy="99" rx="6" ry="12" fill="#172b27"/><circle cx="489" cy="94" r="3" fill="white"/>
+        <path d="M451 131 Q474 140 493 127" fill="none" stroke="#183d3a" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="506" cy="119" r="3" fill="#173b39"/>
+      </svg>
+      <div class="caption">✦ Habitat malam · klik tokek untuk bersuara</div><div class="soundwave" id="soundwave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </main>
+  <div class="grid">
+    <section class="panel"><div class="sectiontag">01 / INTERAKSI</div><h2>Kontrol aksi Toki</h2><div class="controls">
+      <button class="btn primary" onclick="callGecko()">🗣️ Panggil Tokek</button>
+      <button class="btn" onclick="moveGecko()">🦎 Jalan-jalan</button>
+      <button class="btn" onclick="climbGecko()">🌿 Memanjat</button>
+      <button class="btn" onclick="rollGecko()">🌀 Putar badan</button>
+      <button class="btn" onclick="resetGecko()">↺ Reset</button>
+    </div><p style="color:#9dbdad;font-size:.82rem;line-height:1.6;margin:14px 0 0">Tips: coba tekan tombol aksi atau klik langsung ilustrasi tokek. Kamu juga bisa memakai tombol <b>Spasi</b> untuk suara dan <b>G</b> untuk bergerak.</p></section>
+    <section class="panel"><div class="sectiontag">02 / STATUS TOKI</div><h2>Suasana hati tokek</h2><div class="stats">
+      <div class="stat"><div class="emoji">💚</div><strong id="happy">75%</strong><small>Bahagia</small><div class="meter"><span id="happyBar" style="width:75%"></span></div></div>
+      <div class="stat"><div class="emoji">🔊</div><strong id="calls">0x</strong><small>Panggilan</small><div class="meter"><span id="callBar" style="width:0%"></span></div></div>
+      <div class="stat"><div class="emoji">🦎</div><strong id="moves">0x</strong><small>Aksi</small><div class="meter"><span id="moveBar" style="width:0%"></span></div></div>
+    </div><p id="status" style="color:#b7d4c4;font-size:.85rem;margin:15px 0 0">Toki sedang santai di dahan. 🌙</p></section>
+  </div>
+  <section class="panel" style="margin-top:16px"><div class="sectiontag">03 / PENGATURAN</div><h2>Atur dunia Toki</h2><div class="settings">
+    <div class="setting"><label for="speed">⚡ Kecepatan animasi <b id="speedVal">1.0x</b></label><input id="speed" type="range" min=".5" max="2" step=".1" value="1" oninput="setSpeed(this.value)"></div>
+    <div class="setting"><label for="volume">🔉 Volume suara <b id="volumeVal">80%</b></label><input id="volume" type="range" min="0" max="100" value="80" oninput="document.getElementById('volumeVal').textContent=this.value+'%'"></div>
+  </div></section>
+  <section class="facts">
+    <article class="fact"><div class="num">01 — VISUAL</div><h3>Warna yang mencolok</h3><p>Tokek memiliki tubuh berbintik dan mata besar. Ilustrasi vektor pada halaman ini dibuat dari bentuk SVG yang tersusun dari badan, kepala, kaki, ekor, mata, dan bintik.</p></article>
+    <article class="fact"><div class="num">02 — AUDIO</div><h3>Suara “to-kay”</h3><p>Tokek dikenal lewat panggilan vokalnya yang terdengar berulang. Tombol suara memakai audio ucapan sintetis dari browser, jadi suara dapat berbeda tergantung perangkat.</p></article>
+    <article class="fact"><div class="num">03 — ANIMASI</div><h3>Gerak si pemanjat</h3><p>Animasi CSS membuat tokek bergoyang, berjalan, memanjat, dan berputar. Tombol aksi mengubah gerakan dan status interaktif secara langsung.</p></article>
+  </section>
+  <footer class="footer"><span>Dibuat dengan ♥, SVG, CSS, JavaScript, dan rasa ingin tahu.</span><span>PROYEK INDIVIDU · SISTEM MULTIMEDIA</span></footer>
+</div>
+<script>
+const gecko=document.getElementById('gecko'), wave=document.getElementById('soundwave');
+let calls=0,moves=0,happy=75,speed=1;
+function showToast(text){const t=document.getElementById('toast');t.textContent=text;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1100)}
+function update(){document.getElementById('happy').textContent=happy+'%';document.getElementById('happyBar').style.width=happy+'%';document.getElementById('calls').textContent=calls+'x';document.getElementById('callBar').style.width=Math.min(calls*12,100)+'%';document.getElementById('moves').textContent=moves+'x';document.getElementById('moveBar').style.width=Math.min(moves*10,100)+'%'}
+function animate(cls,duration=1000){gecko.classList.remove('walk','roll','climb');void gecko.offsetWidth;gecko.classList.add(cls);gecko.style.animationDuration=(duration/1000/speed)+'s';setTimeout(()=>gecko.classList.remove(cls),duration/speed)}
+function callGecko(){calls++;happy=Math.min(100,happy+2);update();showToast('TO-KAY! 🦎');wave.classList.add('playing');document.getElementById('status').textContent='Toki memanggil: “to-kay… to-kay!” 🔊';const vol=Number(document.getElementById('volume').value)/100;
+if('speechSynthesis' in window && vol>0){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance('To-kay! To-kay!');u.lang='id-ID';u.rate=0.72;u.pitch=1.25;u.volume=vol;u.onend=()=>wave.classList.remove('playing');speechSynthesis.speak(u);setTimeout(()=>wave.classList.remove('playing'),2200)}else{wave.classList.remove('playing')} }
+function moveGecko(){moves++;happy=Math.min(100,happy+1);update();animate('walk',900);document.getElementById('status').textContent='Toki sedang berjalan menjelajahi dahan. 🍃'}
+function climbGecko(){moves++;happy=Math.min(100,happy+2);update();animate('climb',1500);document.getElementById('status').textContent='Toki mulai memanjat dengan bantalan jari kakinya! 🌿'}
+function rollGecko(){moves++;happy=Math.min(100,happy+1);update();animate('roll',850);document.getElementById('status').textContent='Toki berputar sebentar karena terlalu bersemangat! 🌀'}
+function resetGecko(){calls=0;moves=0;happy=75;update();gecko.classList.remove('walk','roll','climb');gecko.style.animationDuration='';document.getElementById('status').textContent='Toki kembali santai di dahan. 🌙';if('speechSynthesis'in window)speechSynthesis.cancel();wave.classList.remove('playing')}
+function setSpeed(v){speed=Number(v);document.getElementById('speedVal').textContent=speed.toFixed(1)+'x';gecko.style.animationDuration=(2.8/speed)+'s'}
+document.addEventListener('keydown',e=>{if(e.code==='Space'&& !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();callGecko()}if(e.key.toLowerCase()==='g')moveGecko()});
+</script>
+</body></html>
